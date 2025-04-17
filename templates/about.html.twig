@@ -2,10 +2,38 @@
 
 {% block title %}About{% endblock %}
 {% block body %}
-    <h1>About</h1>
-    <p>An image which can be clicked on.</p>
-    <a href="{{ asset('img/glider.svg') }}">
-        <img src="{{ asset('img/glider.svg') }}" alt="">
+    <h1>MVC</h1>
+      <div class="two-grid about">
+      <section>
+<h2>GitHub länkar:</h2>
+<ul class="link-list">
+<li>
+<a href="https://github.com/dbwebb-se/mvc">Länk till kursens Repo</a>
+</li>
+<li>
+<a href="https://github.com/Petra-Johansson/bth_mvc">Länk till mitt Repo</a>
+</li>
+</ul>
+
+</section>
+
+        <section>
+            <h2>Om kursen</h2>
+                <p>Jag anser att den här beskrivningen, vilken kommer direkt från kursens 
+                hemsida är en perfekt beskrivning av vad kursen handlar om:</p>
+        <p class="course-description">"Kursen Objektorienterade webbteknologier, a.k.a. mvc, fokuserar på objektorienterade 
+programmeringstekniker i programmeringsspråket PHP. Klassiska objektorienterade konstruktioner 
+hanteras tillsammans med objektorienterad programmering i webbaserat ramverk 
+tillsammans med databaser samt enhetstestning."
+</p>
+
+
+    <a href="{{ asset('img/mvc.png') }}">
+        <img src="{{ asset('img/mvc.png') }}" alt="img showing mvc concept" width="300">
     </a>
-     <img src="{{ asset('build/images/background.jpg') }}" alt="">
+
+<p>För att läsa mer, <a href=https://dbwebb.se/kurser/mvc-v2">besök kursen hemsida! </a> </p>
+    </section>
+
+      </div>
 {% endblock %}
