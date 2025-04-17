@@ -12,6 +12,9 @@ body {
     rgb(253, 183, 233),
     rgb(177, 213, 246),
     rgb(253, 183, 233));
+      background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
 }
 
 .page-wrapper {
@@ -37,7 +40,7 @@ body {
     background: no-repeat;
     */
 
-  .site-header {
+  .site-header, .site-footer {
     display: flex;
     height: 10vh;
     text-align: center;
