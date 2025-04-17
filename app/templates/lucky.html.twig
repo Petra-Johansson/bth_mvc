@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Lucky{% endblock %}
+
+{% block body %}
+    <h1>Oh, lucky You!</h1>
+    <section class="lucky-section">
+   <h2> Today's Taylor Swift album is: {{ album.title }} </h2>
+
+    <a href="{{ album.spotify }}" target="_blank">
+        <img src="{{ album.cover }}" alt="Cover for the album {{ album.title }}" style="max-width: 350px;">
+    </a>
+    <p class="description">Press the image to listen to the album on Spotify.</p>
+
+    <p class="rand-alb"><a href="{{ path('lucky') }}">Get another album 🔄</a></p>
+</section>
+{% endblock %}
