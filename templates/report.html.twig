@@ -4,9 +4,76 @@
 
 {% block body %}
     <h1>Redovisningstexter</h1>
+    <div class="two-grid">
+      <section>
+      <ul class="link-list">
+      <li><a href="#01"> Kmom01 </a> </li>
+      <li><a href="#02"> Kmom02 </a></li>
+      <li><a href="#03"> Kmom03 </a></li>
+      </ul>
 
-<section id="01">
-<h2>Kmom01</h2>
-<p></p>
-</section> 
+      </section>
+   
+   <div>   
+    <section id="01">
+    <h2>Kmom01</h2>
+    <p>Jag har i princip ingen erfarenhet sedan tidigare om objektorientering, 
+    vilket gör detta extra spännande. Det närmsta jag kommit är då jag arbetat med 
+    JavaScript och då främst i Nest.js vilket till stor del bygger på att man skriver just objektorienterat (och modulärt).</p>
+    
+    <p>
+Om jag förstått rätt så kan man se klasser som en mall för hur något ska se ut/bestå av och vad det kan göra; 
+och ett objekt är en instans av klassen. Dvs objektet “är” då klassen faktiskt används och något skapas 
+utifrån den. Klasser är smidiga att skapa och återanvända till saker som behöver samma struktur,
+egenskaper och även beteenden.
+    </p>
+
+    <p>
+
+Jag vet inte riktigt hur jag “uppfattar” den kodbas, struktur och kod som användes nu i början - 
+allt känns nytt så det är svårt att greppa jsut nu. Det är enormt mycket filer som jag inte alls förstår 
+vad de gör, typ “importmap.php”, “phpunit.xml.dist”, “kernel.php” vilket gör det svårt att navigera runt. 
+Men förhoppningsvis kommer allt klarna under kommande moment. Men det jag själv skapat känns än så länge rätt logiskt, som att detta:
+  <br>
+  <code>
+  #[Route("/", name: "home")]
+   public function home(): Response
+   {
+       return $this->render('home.html.twig');
+   }
+</code>
+<br>
+skapar en route med just namnet “home” och även renderar twig-templatet med namnet home. 
+    </p>
+
+    <p>
+    Jag skall vara ärlig och säga att jag hittills bara ögnat igenom artikeln(?)/sidan https://phptherightway.com/ , 
+    jag blev extremt överväldig av all info som stod men jag är säker på att sidan kommer komma till enormt stor användning under 
+    kursen och även senare. Den verkar bestå av det mesta man kan tänkas behöva veta om just PHP och det känns tryggt 
+    att den verkar uppdateras frekvent så man kan vara säker på att informationen  inte är utdaterad! 
+    I nuläget måste jag nog välja området “The basics” som extra värdefullt - då det är där jag känner att jag måste börja och verkligen förstå 
+    för att sedan kunna ta mig vidare till mer avancerade platser :) 
+    </p>
+    <h3>TIL</h3>
+    <p>
+    Mitt TIL får nog vara dels något så banalt som att det tydligen finns ett ramverk som heter Symfony. 
+    Men också att mycket av det som skulle göras nu, och säkerligen i kommande moment, ju faktiskt är sånt som vi gått igenom tidigare
+     - så jag hoppas att jag kan gräva fram lite information från bakhuvudet!
+    </p>
+    </section>
+<hr>
+    <section id="02">
+    <h2>Kmom02</h2>
+    <p></p>
+        <h3>TIL</h3>
+
+    </section>
+
+    <section id="03">
+    <h2>Kmom03</h2>
+    <p></p>
+        <h3>TIL</h3>
+
+    </section> 
+</div>
 {% endblock %}
