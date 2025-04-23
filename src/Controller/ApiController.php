@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,7 +18,7 @@ class ApiController extends AbstractController
         foreach ($routes as $name => $route) {
             $path = $route->getPath();
 
-            if(str_starts_with($path, '/api') && $path !== '/api') {
+            if (str_starts_with($path, '/api') && $path !== '/api') {
                 $data[] = [
                     'name' => $name,
                     'path' => $path,

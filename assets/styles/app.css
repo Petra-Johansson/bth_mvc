@@ -121,3 +121,34 @@ code {
     }
   }
 }
+
+
+.game-div {
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  font-size: 1.5em;
+ ul {
+  text-align: left;
+ }
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #f3e4b5;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
+}

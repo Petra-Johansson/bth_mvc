@@ -19,7 +19,7 @@ class ReportController extends AbstractController
 
         return $this->render('lucky_number.html.twig', $data);
     }
-    
+
     #[Route("/", name: "home")]
     public function home(): Response
     {
@@ -99,7 +99,7 @@ class ReportController extends AbstractController
         ];
 
         $randomAlbum = $albums[array_rand($albums)];
-        
+
         return $this->render('lucky.html.twig', [ 'album' => $randomAlbum]);
     }
 }
