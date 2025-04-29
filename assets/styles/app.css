@@ -11,8 +11,9 @@ body {
     to bottom right,
     rgb(253, 183, 233),
     rgb(177, 213, 246),
-    rgb(253, 183, 233));
-      background-repeat: no-repeat;
+    rgb(253, 183, 233)
+  );
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -40,7 +41,8 @@ body {
     background: no-repeat;
     */
 
-  .site-header, .site-footer {
+  .site-header,
+  .site-footer {
     display: flex;
     height: 10vh;
     text-align: center;
@@ -60,7 +62,7 @@ body {
 }
 
 code {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   padding: 1em;
 }
 .main-container {
@@ -71,6 +73,15 @@ code {
   h1 {
     color: rgb(2, 85, 163);
     text-align: center;
+  }
+
+  h2 {
+    font-size: 1.2em;
+    margin-top: 1em;
+  }
+  h3{
+    font-size: 1em;
+    margin-top: 1em;
   }
 
   .lucky-section {
@@ -120,35 +131,65 @@ code {
       border: 5px solid rgba(2, 85, 163, 0.486);
     }
   }
-}
 
+  .left-section {
+    text-align: left;
+    margin-top: 2em;
+   
+    ul {
+      li 
+        p {
+          font-size: 0.8em;
+      }
+    }
+  }
+}
 
 .game-div {
   margin: 0 auto;
   width: 60%;
   text-align: center;
   font-size: 1.5em;
- ul {
-  text-align: left;
- }
+  ul {
+    text-align: left;
+  }
+
+  .cards-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    li {
+      font-size: 3em;
+    }
+  }
+
+  .card-form {
+    margin: 1em 0;
+  }
+  .actions {
+    margin: 1em;
+    a {
+      font-size: 0.7em;
+    }
+  }
 }
 
 .flash-notice {
-    padding: 0.5em;
-    color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
+  padding: 0.5em;
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
 }
 .flash-notice:before {
-    content: "ⓘ";
+  content: "ⓘ";
 }
 
 .flash-warning {
-    padding: 0.5em;
-    color: #856404;
-    background-color: #f3e4b5;
-    border-color: #ffeeba;
+  padding: 0.5em;
+  color: #856404;
+  background-color: #f3e4b5;
+  border-color: #ffeeba;
 }
 .flash-warning:before {
-    content: "⚠";
+  content: "⚠";
 }
