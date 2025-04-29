@@ -11,8 +11,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-
-class DiceGameController extends AbstractController {
+class DiceGameController extends AbstractController
+{
     #[Route("/game/pig", name: "pig_start")]
     public function home(): Response
     {
@@ -80,7 +80,7 @@ class DiceGameController extends AbstractController {
         return $this->render('pig/test/dicehand.html.twig', $data);
     }
 
-    
+
     #[Route("/game/pig/init", name: "pig_init_get", methods: ['GET'])]
     public function init(): Response
     {
