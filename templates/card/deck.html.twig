@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block title %}CardDrawer{% endblock %}
+
+{% block body %}
+<h1{{ title }}</h1>
+<div class="game-div">
+
+<ul class="cards-list">
+{% for card in cards %}
+
+<li> {{ card }} </li>
+{% endfor %}
+</ul>
+<p>Cards left in deck: {{ cards|length }}</p>
+
+<div class="actions">
+<a href="{{ path('card_deck_shuffle') }}">Shuffle deck & restart</a>
+<a href="{{ path('card_deck_sort') }}">Sort deck & restart</a>
+</div>
+<div class="actions">
+<a href="{{ path('card_draw_one') }}">Draw one card</a>
+<a href="{{ path('card_draw_num', {num: 3 }) }}">Draw 3 cards</a> 
+</div>
+
+
+</div>
+{% endblock %}
