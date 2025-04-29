@@ -5,6 +5,52 @@
 {% block body %}
 <h1>Card Drawer</h1>
 <div class="game-div">
-<p>This is a game where you draw cards. Enjoy.</p>
+
+<h2>Available pages:</h2>
+<div class="actions">
+<a href="{{ path('card_deck') }}">Card Deck</a>
+
+<a href="{{ path('card_deck_shuffle') }}">Shuffle the Card Deck</a>
+
+<a href="{{ path('card_deck_sort') }}">Sort the Card Deck</a>
+
+<a href="{{ path('card_draw_one') }}">Draw One Card</a>
+
+
+<a href="{{ path('game_session') }}">See active session</a>
+</div>
+
+<section class="left-section">
+<h2>Klasser och dess struktur </h2>
+<p>
+Sidan består av tre stycken huvudklasser: Card, CardHand och DeckOfCards samt controllern CardGameController.
+<ul>
+<li>Card
+<p>Representerar varje spelkort med färg (suit) samt ett värde (value).
+Kan returnera et grafiskt utseende med respektive Unicode-symbol, och det är främst detta jag använder på sidan.
+</p>
+</li>
+
+<li>CardHand
+<p>Representerar just en hand med ett eller flera kort. 
+Den består av en array av Card-objekt samt metoder för att lägga till kort
+</p>
+</li>
+
+<li>DeckOfCards
+<p>Representerar hela kortleken - just nu utan jokrar men det kan komma att ändras i kommande kmom.
+Består av en array av Card-objekt och kan blandas (shuffle), och dra enstaka kort (drawCard()) samt flera (drawCards()).  
+</p>
+</li>
+</ul>
+
+<h3>Relationer:</h3>
+<p>Ett DeckOfCards innehåller många Card-ojekt.
+En CardHand innehåller även den många Card-objekt. </p>
+
+<h3>Controllern:</h3>
+<p>CardGameController sköter all komunikation mellan användaren och sidan genom ett antal routes, 
+hanterar sessionen och även interaktionen mellan DeckOfCards och CardHand.</p>
+</section>
 </div>
 {% endblock %}
