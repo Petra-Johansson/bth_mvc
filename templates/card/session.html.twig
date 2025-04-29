@@ -1,0 +1,62 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+{% for message in app.flashes('notice') %}
+    <div class="flash-notice">
+        {{ message }}
+    </div>
+{% endfor %}
+ <div class="game-div">
+<h2>Current session data:</h2>
+<ul>
+    {% for key, value in app.session.all %}
+        <li>
+            <strong>{{ key }}:</strong>
+            <pre>{{ dump(value) }}</pre>
+        </li>
+    {% else %}
+        <li>Session is empty.</li>
+    {% endfor %}
+</ul>
+
+<h2>"Fancy looking" session details:</h2>
+<ul>
+    <li>Remaining cards: {{ remaining ?? 'Unknown' }}</li>
+     <li>Latest drawn card(s): 
+        {% if last_drawn_cards is defined and last_drawn_cards is not empty %}
+            <ul class="cards-list">
+                {% for card in last_drawn_cards %}
+                    <li>{{ card }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            No cards drawn.
+        {% endif %}
+    </li>
+    <li>All cards that has been drawn:
+        {% if draw_history is defined and draw_history is not empty %}
+            <ul class="cards-list">
+                {% for card in draw_history %}
+                    <li>{{ card }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            No drawn cards.
+        {% endif %}
+    </li>
+</ul>
+
+
+
+<h2>Debug</h2>
+{% if app.debug %}
+    <div class="debug">
+        <h2>Debug: Raw session dump</h2>
+        <pre>{{ dump(app.session.all) }}</pre>
+    </div>
+{% endif %}
+</div>
+
+{% endblock %}
