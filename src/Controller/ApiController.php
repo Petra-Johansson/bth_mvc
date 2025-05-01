@@ -15,6 +15,17 @@ class ApiController extends AbstractController
         $routes = $router->getRouteCollection();
         $data = [];
 
+        $descriptions = [
+            'app_reportcontrollerjson_index' => 'Visar en index-sida för API:et. (Denna sida)',
+            'app_reportcontrollerjson_todaysquote' => 'Returnerar dagens Taylor Swift citat i JSON-format.',
+            'api_deck' => 'Returnerar kortleken sorterad.',
+            'api_deck_shuffle' => 'Blandar kortleken.',
+            'api_deck_shuffled' => 'Returnerar den blandade kortleken',
+            'api_draw_one' => 'Drar ett kort.',
+            'api_draw_multi' => 'Drar flera kort.',
+            'api_drawn_cards' => 'Returnerar de dragna korten samt visar hur många som återstår.'
+        ];
+
         foreach ($routes as $name => $route) {
             $path = $route->getPath();
 
@@ -22,6 +33,7 @@ class ApiController extends AbstractController
                 $data[] = [
                     'name' => $name,
                     'path' => $path,
+                    'description' => $descriptions[$name]
                 ];
             }
         }
@@ -29,5 +41,5 @@ class ApiController extends AbstractController
             'api_routes' => $data,
             'count_routes' => count($data),
         ]);
-    }
+    }    
 }
