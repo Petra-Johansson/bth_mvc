@@ -41,5 +41,5 @@ class ApiController extends AbstractController
             'api_routes' => $data,
             'count_routes' => count($data),
         ]);
-    }    
+    }
 }
