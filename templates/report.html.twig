@@ -64,9 +64,37 @@ skapar en route med just namnet “home” och även renderar twig-templatet med
 <hr>
     <section id="02">
     <h2>Kmom02</h2>
-    <p></p>
-        <h3>TIL</h3>
-
+    <ul>
+   <li><strong> Arv - vad något är:</strong> Innebär att en klass ärver, extends, kod från en annan (föräldrar)klass. Till exempel kan vi ha klasserna Fordon och Personbil. Personbil ärver egenskaper och metoder, som att den till exempel har ett märke, en färg, och kan starta och stanna från föräldrarklassen Fordon; men den kan även få nya egenskaper som till exempel funktionen att fälla ner baksätet - något ett annat fordon som till exempel en moped inte behöver. Lite som ett släktträd/släktskap där vi ärver mycket från våra föräldrar, men även skaffar oss en egen personlighet.
+</li>
+<li><strong>Komposition - vad något har:</strong> Här kan vi tänka lite som ett lapptäcke eller legobygge; klassen innehåller andra objekt utan att ärva dem och kan enklare bytas ut. Som i exemplet ovan med personbilen - en komposition kan vara att motorn kan vara en diesel- eller elmotor, lamporna på bilen kan ha ett gult eller vittljus.
+</li>
+<li><strong>Interface - vad något kan:</strong> Agerar lite som ett kontrakt, eller en checklista, där de metoder som skall användas definieras med “metodsignaturer”. För att fortsätta med våra fordon: oavsett om det är en moped, personbil eller buss bör den rimligtvis kunna köra framåt och även backa. Dessa två metoder skulle då kunna definieras/deklareras i ett interface med namn, parametrar och även returtyp.
+En klass implementerar sedan detta interface och de angivna metoderna måste skrivas i koden för klassen Personbil. Missar vi att faktiskt skriva metoden för “backa” i Personbils-klassen kommer vi få error då vi försöker köra koden. 
+</li>
+<li><strong>Trait:</strong>Då en klass använder ett trait innebär det att man i princip “kopierar” in ett stycke kod i en klass och kan vara som ett komplement till ett arv.. Syftet med ett trait är att det är en återanvändningsbar modul som flera klasser kan ha nytta av - kanske i form av att logga händelser eller om man spelar minigolf, håller koll på hur många slag personen behöver för att klara respektive bana.</p>
+</li>
+</ul>
+<p>
+Jag tycker uppgiften var klurig att lösa, speciellt att hålla sessionen och testa att den fungerade korrekt - då främst när det kom till att arbeta i terminalen med JSON-apiet (jag kan ha missat någon föreläsning där det gicks igenom hur vi skulle testa att allt fungerar..). Det tog ett tag innan jag förstod hur jag genom curl skulle lyckas testa och hålla sessions-cookien levande - innan dess stämde liksom inget riktigt med dragna kort, shuffling och så vidare.
+  </p>
+  
+  <p>
+  Jag skulle tro att det finns mycket förfining att göra. Jag valde att ha de tre föreslagna klasserna: Card, CardHand och DeckOfCards. 
+Card består av metoder för att getSuit, getValue och även getGraphics där varje suit-value:par har sitt motsvarande utf-8-kort. Jag hade gärna lagt tid på att göra egna kort men det kändes för tidskrävande nu då jag redan ligger så långt efter i planeringen. CardHand har metoderna addCard (till en cards-array) och getCards.
+DeckOfCards-klassen har metoder för att skapa en kortlek (genereteDeck), shuffla leken, dra ett eller flera kort samt för att visa vilka kort som dragits (getCards).
+  </p>
+  <p>
+  Jag tycker det känns “konstigt” att mina controllers - den för Symfony och den för JSON-apiet är så lika. Det känns som att jag kanske missförstått något självklart. Nu känns det som att jag nästan kopierat stora delar från “CardGameController” till “CardGameControllerJson” - men att den stora skillnaden är att den senare returnerar i json-format.
+  </p>
+  <p>
+  Jag tycker det känns ganska trevligt att arbeta med Symfony faktiskt! Det är trevligt att ha alla delar för MVC direkt och inte behöva tänka på att arbeta dels i en backend men även en frontend som i till exempel Nest.js + valfri template-engine. Just Twig tycker jag ser ganska fult och rörigt ut att skriva, speciellt utan någon typ av VS code-extension som formaterar koden.I detta projekt märks det kanske främst på denna sida då jag först skriver all text i ett textdokument och sedan klistrar in och ingen formatering följer med. Det är också skönt att inte behöva reflektera över async/await då allt sker sekventiellt och även att ha mycket serverside - det går fort att starta upp både projektet men även att hoppa mellan sidor och interagera med dem!
+  </p>
+  
+  <h3>TIL</h3>
+<p>
+Jag skulle säga att allt som har med klasser att göra faller inom denna rubrik. Jag har inte haft någon direkt koll på vare sig arv, komposition, interface eller trait - jag har vetat att de existerar och används, men inte förstått innebörden av dem! Jag har tidigare inte heller gjort UML-diagram så även det var nytt och känns liksom er-diagram något förvirrande i hur de olika relationerna definieras med var diamanter/pilar placeras osv.
+</p>
     </section>
 
     <section id="03">
