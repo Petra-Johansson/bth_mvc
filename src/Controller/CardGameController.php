@@ -29,7 +29,7 @@ class CardGameController extends AbstractController
         ]);
     }
 
-    #[Route("/session/delete", name: "session_delete")]
+    #[Route("/session/delete", name: "session_delete", methods: ['POST'])]
     public function deleteSession(
         SessionInterface $session
     ): Response {
@@ -67,6 +67,9 @@ class CardGameController extends AbstractController
         $deck->shuffle();
         $session->set("deck", $deck);
 
+        $session->set("card_hand", []);
+        $session->set("draw_history", []);
+        $session->set("last_drawn_cards", []);
         $data = [
             "cards" => $deck->getCards(),
             "title" => "Deck of Cards shuffled"
@@ -119,10 +122,23 @@ class CardGameController extends AbstractController
         int $num
     ): Response {
 
-        if ($num > 52) {
-            throw new \Exception("You can't draw more than 52 cards!");
-        }
         $deck = $this->checkDeck($session);
+        $remaining = count($deck->getCards());
+
+        if ($num > $remaining) {
+            $this->addFlash(
+                'warning',
+                'Cannot draw ' . $num . ' cards, only ' . $remaining . ' left in the deck. Try again!'
+            );
+            $data = [
+                "cards" => [],
+                "remaining" => $remaining,
+                "hand" => $session->get("card_hand", [])
+            ];
+
+            return $this->render("card/draw.html.twig", $data);
+        }
+
         $cards = $deck->drawCards($num);
         $session->set("deck", $deck);
 
@@ -154,8 +170,24 @@ class CardGameController extends AbstractController
         SessionInterface $session
     ): Response {
         $num = $request->request->getInt('num', 1);
-
         $deck = $this->checkDeck($session);
+        $remaining = count($deck->getCards());
+
+        if ($num > $remaining) {
+            $this->addFlash(
+                'warning',
+                'Cannot draw ' . $num . ' cards, only ' . $remaining . ' left in the deck. Try again!'
+            );
+
+            $data = [
+                "cards" => [],
+                "remaining" => $remaining,
+                "hand" => $session->get("card_hand", [])
+            ];
+
+            return $this->render("card/draw.html.twig", $data);
+        }
+
         $cards = $deck->drawCards($num);
         $session->set("deck", $deck);
 
@@ -181,18 +213,19 @@ class CardGameController extends AbstractController
 
         $data = [
             "cards" => $cards,
+            "hand" => $session->get("card_hand", []),
             "remaining" => $deck ? count($deck->getCards()) : 0
         ];
 
         return $this->render("card/draw.html.twig", $data);
     }
 
-    // hjälpmetod för att eliminiera repetativ kod 
+    // hjälpmetod för att eliminiera repetativ kod
     private function checkDeck(
         Sessioninterface $session
     ): DeckOfCards {
         $deck = $session->get("deck");
-        if(!$deck instanceof DeckOfCards) {
+        if (!$deck instanceof DeckOfCards) {
             $deck = new DeckOfCards();
             $session->set("deck", $deck);
         }

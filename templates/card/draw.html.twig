@@ -8,7 +8,7 @@
         <section>
     <h2>Card drawn:</h2>
 <ul class="cards-list">
-{% for card in cards %}
+{% for card in hand %}
 <li> {{ card }}</li>
   {% else %}
     <li>No cards drawn yet.</li>
@@ -26,7 +26,7 @@
 <input type="number" id="num" name="num" min="1" max="52" required>
 <button type="submit">Draw</button>
 </form>
-
+{{ include('flash.html.twig') }}
 </div>
 <div class="actions">
 <a href="{{ path('card_deck_shuffle') }}">Shuffle deck and restart</a>

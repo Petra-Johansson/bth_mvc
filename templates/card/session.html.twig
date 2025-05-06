@@ -57,6 +57,11 @@
         <pre>{{ dump(app.session.all) }}</pre>
     </div>
 {% endif %}
+
+ <form action="{{ path('session_delete') }}" method="post">
+        <button type="submit" class="delete-btn">Delete Session
+        </button>
+    </form>
 </div>
 
 {% endblock %}

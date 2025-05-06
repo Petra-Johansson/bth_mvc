@@ -33,6 +33,21 @@ a {
 p {
   max-width: 70ch;
 }
+button {
+  padding: .4em;
+  border-radius: 5px;
+  border:none;
+  cursor: pointer;
+
+  &.delete-btn {
+    background-color: rgb(235, 92, 92);
+
+    &:hover {
+      background-color: rgb(248, 214, 211);
+    }
+  }
+}
+
 body {
   width: 100%;
   background-color: rgb(219, 233, 246);
@@ -179,6 +194,7 @@ code {
   color: #004085;
   background-color: #cce5ff;
   border-color: #b8daff;
+  text-align: center;
 }
 .flash-notice:before {
   content: "ⓘ";
@@ -189,6 +205,7 @@ code {
   color: #856404;
   background-color: #f3e4b5;
   border-color: #ffeeba;
+    text-align: center;
 }
 .flash-warning:before {
   content: "⚠";
