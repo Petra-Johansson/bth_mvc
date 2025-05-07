@@ -8,7 +8,7 @@
    <h2> Today's Taylor Swift album is: {{ album.title }} </h2>
 
     <a href="{{ album.spotify }}" target="_blank">
-        <img src="{{ album.cover }}" alt="Cover for the album {{ album.title }}" style="max-width: 350px;">
+        <img src="{{ asset(album.cover) }}" alt="Cover for the album {{ album.title }}" style="max-width: 350px;">
     </a>
     <p class="description">Press the image to listen to the album on Spotify.</p>
 
